@@ -95,7 +95,7 @@ reports/
         └── ...              # all referenced scripts, styles, images, and media
 ```
 
-A `report/` wrapper inside the task folder is also accepted. Reports must include their referenced local resources with working relative paths; see [Report Format](REPORT_FORMAT.md). No generated reports or evaluation outputs are bundled.
+Reports must include their referenced local resources with working relative paths; see [Report Format](REPORT_FORMAT.md).
 
 ### 3. Configure judges
 
@@ -103,9 +103,7 @@ A `report/` wrapper inside the task folder is also accepted. Reports must includ
 cp .env.example .env
 ```
 
-Set `OPENAI_BASE_URL` (the prefix before `/chat/completions`, usually ending in `/v1`) and `OPENAI_API_KEY`. No endpoint or credentials are included.
-
-`OMNIDR_JUDGE_MODEL` selects the judge (default `gpt-5.6-sol`, as in the paper) for both text and vision; recency checks use today's date. Override with `--vision-model` or `--evaluation-date YYYY-MM-DD`; environment variables override `.env`.
+Set `OPENAI_BASE_URL` (the prefix before `/chat/completions`, usually ending in `/v1`) and `OPENAI_API_KEY`. `OMNIDR_JUDGE_MODEL` selects the judge (default `gpt-5.6-sol`, as in the paper); no endpoint or credentials are included.
 
 ### 4. Evaluate
 
@@ -123,16 +121,15 @@ python evaluate.py --reports-dir ./reports --data-dir /path/to/OmniDR-Bench-data
   --models my_model --instances OmniDR-Bench-v0-0001
 ```
 
-`--data-dir` must point to the directory containing `OmniDR-Bench.jsonl`; it is not bundled here. Use `--jobs` / `--workers` for concurrency (defaults 1 / 4). `--no-llm` skips judge calls and `--skip-render` skips browser checks; both yield **partial scores**. See `python evaluate.py --help`.
+`--data-dir` points to the directory holding `OmniDR-Bench.jsonl` (required, not bundled). Use `--jobs` / `--workers` to parallelize reports / judgments; see `python evaluate.py --help` for all options.
 
-Re-running resumes compatible cached judgments; changes to a task, report, judge settings, or date invalidate the cache (`--force` to re-evaluate). Outputs go to `results/` (`--output-dir`):
+Results are written to `results/`:
 
-- `summary.json`: model statistics and per-task status.
+- `summary.json`: per-model statistics and per-task status. The headline number is `by_model[model].total_score.mean`.
 - `scores.csv`: task totals and dimension scores.
-- `{model}/{id}.json`: detailed rubric judgments and scores.
-- `.cache/`: per-task inputs, browser measurements, and resume metadata.
+- `{model}/{id}.json`: per-criterion judgments and scores for one report.
 
-The primary metric is `by_model[model].total_score.mean` in `summary.json`, averaging **all selected tasks** with zero for missing or unreadable reports. Check `evaluation_complete`, `n_errored`, and `n_unresolved` before reporting. Exit codes: `0` complete, `1` incomplete, `2` input/config error; partial modes stay labeled partial.
+Re-running reuses cached judgments and retries only failures; use `--force` to re-judge from scratch.
 
 ## License
 
