@@ -8,12 +8,10 @@
 
 ## The Task: Video-Centered Deep Research
 
-Videos carry knowledge text cannot: on-screen charts, demonstrated procedures, spoken claims, and their timing. Viewers need more than a recap: they want to **locate moments**, **verify claims**, **reproduce procedures**, or **make decisions**. OmniDR-Bench makes this a task:
+Videos carry knowledge text cannot: on-screen charts, demonstrated procedures, spoken claims, and their timing. Viewers need more than a recap: they want to **locate moments**, **verify claims**, **reproduce procedures**, or **make decisions**. This project makes this a task:
 
 > **Input.** Source video `V` + user request `Q`.
-> **Output.** An interactive HTML report grounding findings in the video's audiovisual evidence, enriched with external multimodal research, linking each claim to a citation and a video timestamp.
-
-A task is accepted only when neither video-only analysis nor generic web search suffices alone. Below, one accepted task: the request cannot be answered from the video, and the sample criteria show what a good report must establish.
+> **Output.** An **interactive HTML report** grounding findings in the video's audiovisual evidence, enriched with external multimodal research, linking each claim to a citation and a video timestamp.
 
 ![A concrete OmniDR-Bench task: source video, user request, and sample rubric criteria](assets/task_example.png)
 
@@ -45,7 +43,7 @@ Each tree is built by **Audited Rubric Construction (ARC)**: isolated audiovisua
 
 ![Main results from the paper](assets/results.png)
 
-Table 3 compares 18 model-harness configurations. **Avg.** covers all 50 tasks (zero for unsuccessful reports); **Avg. succ.** and dimension columns cover scored reports. The best system reaches 63.3 overall. Presentation far exceeds content and citation, so current agents meet layout needs more reliably than coverage, reasoning, and citation support.
+We compare 18 model-harness configurations. **Avg.** covers all 50 tasks (zero for unsuccessful reports); **Avg. succ.** and dimension columns cover scored reports. The best system reaches 63.3 overall. Presentation far exceeds content and citation, so current agents meet layout needs more reliably than coverage, reasoning, and citation support.
 
 ## Quick Start
 
@@ -84,7 +82,7 @@ See the [bilingual dataset usage notice](https://huggingface.co/datasets/mariner
 
 **Videos and audio are not distributed.** Obtain source videos independently under the applicable terms and place them at `videos/{id}.mp4` (e.g. `OmniDR-Bench-data/videos/OmniDR-Bench-v0-0001.mp4`). This repository provides no download tools.
 
-The reference report harness will be integrated into Qwen-MM-Plugins.
+The reference report harness will be integrated into **Qwen-MM-Plugins**.
 
 Give the video and query to the evaluated system; reserve the rubric for scoring. Place each complete report under its model and task ID:
 
