@@ -82,7 +82,7 @@ See the [bilingual dataset usage notice](https://huggingface.co/datasets/mariner
 
 **Videos and audio are not distributed.** Obtain source videos independently under the applicable terms and place them at `videos/{id}.mp4` (e.g. `OmniDR-Bench-data/videos/OmniDR-Bench-v0-0001.mp4`). This repository provides no download tools.
 
-The reference report harness will be integrated into **Qwen-MM-Plugins**.
+> **Reference harness:** the report-generation workflow is released as the `omnidr` capability of **[Qwen-MM-Plugins](https://github.com/QwenLM/Qwen-MM-Plugins/tree/main/src/capabilities/omnidr)**. Use it to produce the reports you submit.
 
 Give the video and query to the evaluated system; reserve the rubric for scoring. Place each complete report under its model and task ID:
 
