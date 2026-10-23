@@ -2,7 +2,7 @@
 
 **OmniDR-Bench** benchmarks **Video-Centered Deep Research Report Generation**: given a source video and a user request, an agent produces an interactive, citation-traceable HTML report that keeps the video at the center. **50 bilingual tasks**, **6,414 binary rubric criteria**.
 
-[Paper](https://arxiv.org/abs/2610.xxxxx) · [Dataset](https://huggingface.co/datasets/marinero4972/OmniDR-Bench) · [Data Usage Notice](https://huggingface.co/datasets/marinero4972/OmniDR-Bench) · [Report Format](REPORT_FORMAT.md) · [Quick Start](#quick-start) · [Results](#results) · [Citation](#citation)
+[Paper](https://arxiv.org/abs/2610.31158) · [Dataset](https://huggingface.co/datasets/marinero4972/OmniDR-Bench) · [Data Usage Notice](https://huggingface.co/datasets/marinero4972/OmniDR-Bench) · [Report Format](REPORT_FORMAT.md) · [Quick Start](#quick-start) · [Results](#results) · [Citation](#citation)
 
 ![OmniDR-Bench teaser](assets/teaser.png)
 
@@ -141,7 +141,7 @@ Evaluation code: [MIT](LICENSE). Dataset texts and arrangement: [CC BY-NC 4.0](h
 @article{meng2026omnidr,
   title={Beyond Watching and Searching: Benchmarking Agents for Video-Centered Deep Research Reports},
   author={Meng, Jiahao and Yang, Qize and Wang, Yuxuan and Chu, Yunfei and Dai, Wensi and Xu, Jin and Tong, Yunhai},
-  journal={arXiv preprint arXiv:2610.xxxxx},
+  journal={arXiv preprint arXiv:2610.31158},
   year={2026}
 }
 ```
